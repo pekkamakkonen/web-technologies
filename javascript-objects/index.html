@@ -9,9 +9,26 @@
     <script src="js/javascript-objects.js"></script>
 </head>
 <body>
-    Pizzoja
-    <input type="button" name="product1" value="-" onclick="decrease()">
-    <input type="button" name="product1" value="+" onclick="increase()">
+
+    <h3>
+        Pizzat:<br><br>
+        <input type="button" name="product1" value="-" onclick="decrease(product1)">
+        <p id="pizzas"></p>
+        <input type="button" name="product1" value="+" onclick="increase(product1)">
+    </h3>
+
+    <br>
+
+    <h3>
+        Juomat:<br><br>
+        <input type="button" name="product2" value="-" onclick="decrease(product2)">
+        <p id="drinks"></p>
+        <input type="button" name="product2" value="+" onclick="increase(product2)">
+    </h3>
+
+    <br>
+
+    <p id="finalPrice"></p>
 
 </body>
 </html>
