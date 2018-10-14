@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/ticket.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Lipun varaaminen</h1>
+
+    <div class="row">
+        <div class="col-lg">
+
+    <h3>Täytä asiakastietosi</h3>
+            <br>
+
+    <form>
+
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label>Etunimi</label>
+                <input type="text" id="firstName" class="form-control" placeholder="Etunimi">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Sukunimi</label>
+                <input type="text" id="lastName" class="form-control" placeholder="Sukunimi">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Ikä</label>
+                <input type="number" id="age" class="form-control" placeholder="Ikä" min="0">
+            </div>
+
+            <div class="form-group">
+
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="isSoldier" class="form-check-input">
+                <label class="form-check-label">Varusmies</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="isStudent" class="form-check-input">
+                <label class="form-check-label">Opiskelija</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input type="checkbox" id="isMtkMember" class="form-check-input">
+                <label class="form-check-label">Mtk-jäsen</label>
+            </div>
+
+            </div>
+
+            <input type="button" class="btn btn-primary" value="Laske hinta" onclick="calculatePrice()">
+        </div>
+
+    </form>
+
+            <br>
+        <h3 id="finalPrice"></h3>
+
+            <br>
+
+        </div>
+
+        <div class="col-lg">
+
+            <h3>Lipun hinnan muodostuminen</h3>
+
+    <p>Lipun hinta muodostuu seuraavilla ehdoilla:
+        Vain yksi alennus myönnetään. Paitsi jos olet opiskelija sekä Mtk:n jäsen, saat siinä tapauksessa molemmat alennukset.</p>
+
+    <ul>
+        <li>Normaalihinta 16 e</li>
+        <li>Alle 7 v. ilmaiseksi</li>
+        <li>65 v. ja yli: 50 % alennus</li>
+        <li>7-15 v. 50% alennus</li>
+        <li>Mtk jäsen: 15 % alennus</li>
+        <li>Varusmies: 50 % alennus</li>
+        <li>Opiskelija: 45 % alennus</li>
+    </ul>
+
+        </div>
+</div>
+</div>
+
+</body>
+</html>
