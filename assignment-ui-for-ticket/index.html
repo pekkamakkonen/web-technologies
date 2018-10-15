@@ -26,7 +26,7 @@
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label>Etunimi</label>
-                <input type="text" id="firstName" class="form-control" placeholder="Etunimi">
+                <input type="text" id="firstName" class="form-control" placeholder="Etunimi" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label>Sukunimi</label>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label>Ikä</label>
-                <input type="number" id="age" class="form-control" placeholder="Ikä" min="0">
+                <input type="number" id="age" class="form-control" placeholder="Ikä" min="0" required>
             </div>
 
             <div class="form-group">
@@ -56,7 +56,7 @@
 
             </div>
 
-            <input type="button" class="btn btn-primary" value="Laske hinta" onclick="calculatePrice()">
+            <input type="button" class="btn btn-primary" value="Laske hinta" onclick="Customer(); calculatePrice()">
         </div>
 
     </form>

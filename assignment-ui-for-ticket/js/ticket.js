@@ -1,21 +1,28 @@
+var customer = new Object();
+
+function Customer() {
+    this.firstName = document.getElementById("firstName").value;
+    this.lastName = document.getElementById("lastName").value;
+    this.age = document.getElementById("age").value;
+    this.isSoldier = document.getElementById("isSoldier").checked;
+    this.isStudent = document.getElementById("isStudent").checked;
+    this.isMtkMember = document.getElementById("isMtkMember").checked;
+}
+
 function calculatePrice() {
 
     var amount = 16.00;
     var discount = 0.00;
-    var age = document.getElementById("age").value;
-    var isSoldier;
-    var isStudent;
-    var isMtkMember;
 
     if (age < 7) {
         discount = 1.00;
-    } else if (age <= 15 || age >= 65 || document.getElementById("isSoldier").checked) {
+    } else if (age <= 15 || age >= 65 || isSoldier == true) {
         discount = 0.50;
     } else {
-        if (document.getElementById("isStudent").checked) {
+        if (isStudent == true) {
             discount = 0.45;
         }
-        if (document.getElementById("isMtkMember").checked) {
+        if (isMtkMember == true) {
             discount += 0.15;
         }
     }
