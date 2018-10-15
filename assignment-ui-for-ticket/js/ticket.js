@@ -1,5 +1,3 @@
-var customer = new Object();
-
 function Customer() {
     this.firstName = document.getElementById("firstName").value;
     this.lastName = document.getElementById("lastName").value;
@@ -31,7 +29,15 @@ function calculatePrice() {
     document.getElementById("finalPrice").innerHTML = amount.toFixed(2) + " €";
 }
 
+function showPrices() {
+    var content = document.getElementById("prices");
 
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
 
 
 
