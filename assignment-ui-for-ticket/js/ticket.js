@@ -12,15 +12,15 @@ function calculatePrice() {
     var amount = 16.00;
     var discount = 0.00;
 
-    if (age < 7) {
+    if (this.age < 7) {
         discount = 1.00;
-    } else if (age <= 15 || age >= 65 || isSoldier == true) {
+    } else if (this.age <= 15 || this.age >= 65 || this.isSoldier) {
         discount = 0.50;
     } else {
-        if (isStudent == true) {
+        if (this.isStudent) {
             discount = 0.45;
         }
-        if (isMtkMember == true) {
+        if (this.isMtkMember) {
             discount += 0.15;
         }
     }
