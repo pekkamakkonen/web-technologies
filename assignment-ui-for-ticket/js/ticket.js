@@ -35,7 +35,25 @@ function calculatePrice() {
 }
 
 function showPrices() {
-    
+
+    var listOfPrices = "";
+    listOfPrices = listOfPrices + "<li>" + discounts[0].category + " " + discounts[0].amount.toFixed(2) + " €</li>";
+
+    for(var i = 1; i < discounts.length; i++) {
+
+        var discountInfo = discounts[i].discountPercent * 100 + " % alennus";
+        var discountPercent = discounts[i].discountPercent;
+
+        if (discountPercent == 1.00) {
+            discountInfo = "ilmaiseksi";
+        }
+
+        listOfPrices = listOfPrices + "<li>" + discounts[i].category + " " + discountInfo + " </li>";
+    }
+
+    listOfPrices = listOfPrices + "</ul>";
+    document.getElementById("listOfPrices").innerHTML = listOfPrices;
+
     var content = document.getElementById("prices");
 
     if (content.style.display === "block") {
@@ -43,12 +61,13 @@ function showPrices() {
     } else {
         content.style.display = "block";
     }
+
 }
 
 var discounts = [
     {
         "category": "Normaalihinta",
-        "amount": 16
+        "amount": 16.00
     },
     {
         "category": "Lapset alle 7 v",
@@ -59,7 +78,7 @@ var discounts = [
         "discountPercent": 0.50
     },
     {
-        "category": "Yli 65-vuotiaat",
+        "category": "Eläkeläiset",
         "discountPercent": 0.50
     },
     {
