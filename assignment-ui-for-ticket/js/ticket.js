@@ -12,22 +12,34 @@ function calculatePrice() {
     var amount = discounts[0].amount;
     var discount = 0.00;
 
+    var discountGroup1 = discounts[1].discountPercent;
+    var discountGroup2 = discounts[2].discountPercent;
+    var discountGroup3 = discounts[3].discountPercent;
+    var discountGroup4 = discounts[4].discountPercent;
+    var discountGroup5 = discounts[5].discountPercent;
+    var discountGroup6 = discounts[6].discountPercent;
+    var discountGroup7 = discountGroup5 + discountGroup6;
+
     if (this.age < 7) {
-        discount = discounts[1].discountPercent;
-    } else if (this.age <= 15) {
-        discount = discounts[2].discountPercent;
-    } else if (this.age >= 65) {
-        discount = discounts[3].discountPercent;
-    } else if (this.isSoldier) {
-        discount = discounts[4].discountPercent;
+        discount = discountGroup1;
     }
-    else {
-        if (this.isStudent) {
-            discount = discounts[5].discountPercent;
-        }
-        if (this.isMtkMember) {
-            discount += discounts[6].discountPercent;
-        }
+    if (this.age <= 15 && discountGroup2 > discount) {
+        discount = discountGroup2;
+    }
+    if (this.age >= 65 && discountGroup3 > discount) {
+        discount = discountGroup3;
+    }
+    if (this.isSoldier && this.age >= 18 && discountGroup4 > discount) {
+        discount = discountGroup4;
+    }
+    if (this.isStudent && discountGroup5 > discount) {
+        discount = discountGroup5;
+    }
+    if (this.isMtkMember && discountGroup6 > discount) {
+        discount = discountGroup6;
+    }
+    if (this.isStudent && this.isMtkMember && discountGroup7 >= discount) {
+        discount = discountGroup7;
     }
 
     amount = amount - (amount * discount);
@@ -39,7 +51,7 @@ function showPrices() {
     var listOfPrices = "";
     listOfPrices = listOfPrices + "<li>" + discounts[0].category + " " + discounts[0].amount.toFixed(2) + " €</li>";
 
-    for(var i = 1; i < discounts.length; i++) {
+    for (var i = 1; i < discounts.length; i++) {
 
         var discountInfo = discounts[i].discountPercent * 100 + " % alennus";
         var discountPercent = discounts[i].discountPercent;
@@ -47,7 +59,6 @@ function showPrices() {
         if (discountPercent == 1.00) {
             discountInfo = "ilmaiseksi";
         }
-
         listOfPrices = listOfPrices + "<li>" + discounts[i].category + " " + discountInfo + " </li>";
     }
 
