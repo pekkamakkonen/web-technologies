@@ -20,26 +20,28 @@ function calculatePrice() {
     var discountGroup6 = discounts[6].discountPercent;
     var discountGroup7 = discountGroup5 + discountGroup6;
 
-    if (this.age < 7) {
-        discount = discountGroup1;
-    }
-    if (this.age <= 15 && discountGroup2 > discount) {
-        discount = discountGroup2;
-    }
-    if (this.age >= 65 && discountGroup3 > discount) {
-        discount = discountGroup3;
-    }
-    if (this.isSoldier && this.age >= 18 && discountGroup4 > discount) {
-        discount = discountGroup4;
-    }
-    if (this.isStudent && discountGroup5 > discount) {
-        discount = discountGroup5;
-    }
-    if (this.isMtkMember && discountGroup6 > discount) {
-        discount = discountGroup6;
-    }
-    if (this.isStudent && this.isMtkMember && discountGroup7 >= discount) {
-        discount = discountGroup7;
+    if (this.age != null && this.age != "") {
+        if (this.age < 7) {
+            discount = discountGroup1;
+        }
+        if (this.age <= 15 && discountGroup2 > discount) {
+            discount = discountGroup2;
+        }
+        if (this.age >= 65 && discountGroup3 > discount) {
+            discount = discountGroup3;
+        }
+        if (this.isSoldier && this.age >= 18 && discountGroup4 > discount) {
+            discount = discountGroup4;
+        }
+        if (this.isStudent && discountGroup5 > discount) {
+            discount = discountGroup5;
+        }
+        if (this.isMtkMember && discountGroup6 > discount) {
+            discount = discountGroup6;
+        }
+        if (this.isStudent && this.isMtkMember && discountGroup7 >= discount) {
+            discount = discountGroup7;
+        }
     }
 
     amount = amount - (amount * discount);
